@@ -1,11 +1,11 @@
 /**
- * js/auth.js - Controle de autenticação, sessão e sementes iniciais do LocalStorage
+ * js/auth.js - Controle de autenticação e sementes iniciais do LocalStorage
  */
 
 // Inicializa dados padrão no LocalStorage caso estejam vazios
 function inicializarBanco() {
-    // Se não existirem administradores cadastrados, inicializa com array vazio 
-    // para permitir que o utilizador crie a sua própria conta local no primeiro acesso.
+    // Garante que o array de administradores comece vazio se não existir,
+    // forçando a criação do primeiro utilizador local.
     if (!localStorage.getItem('bibliokids_admins')) {
         localStorage.setItem('bibliokids_admins', JSON.stringify([]));
     }
