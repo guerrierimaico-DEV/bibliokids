@@ -1,6 +1,7 @@
 const CACHE_NAME = 'bibliokids-v1';
 const assets = [
   'index.html',
+  'registro.html',
   'dashboard.html',
   'livros.html',
   'alunos.html',

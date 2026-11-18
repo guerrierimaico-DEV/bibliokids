@@ -290,7 +290,7 @@ function carregarEmprestimos() {
                 <td>${formatarData(e.data_emprestimo)}</td>
                 <td>${formatarData(e.data_devolucao)}</td>
                 <td>
-                    ${atrasado ? '<span class="badge badge-red">❌ Atrasado</span>' : `<span class="badge badge-green">✅ \${diffDias} dias</span>`}
+                    ${atrasado ? '<span class="badge badge-red">❌ Atrasado</span>' : `<span class="badge badge-green">✅  ${diffDias} dias</span>`}
                 </td>
                 <td>
                     <button class="btn-icon" onclick="devolverLivro(${e.id})">📥 Devolver</button>
