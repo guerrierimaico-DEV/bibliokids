@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📚 BiblioKids - Login</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="login-bg">
+<div class="login-container">
+    <div class="login-card">
+        <div class="login-logo">📚</div>
+        <h1>BiblioKids</h1>
+        <p class="subtitle">A Biblioteca Mágica dos Livros ✨</p>
+        
+        <div id="erroLogin" class="alert alert-danger" style="display: none;"></div>
+        
+        <form onsubmit="fazerLogin(event)">
+            <div class="form-group">
+                <label>👤 Usuário</label>
+                <input type="text" id="usuario" required autocomplete="off" placeholder="Digite seu usuário">
+            </div>
+            <div class="form-group">
+                <label>🔒 Senha</label>
+                <input type="password" id="senha" required placeholder="Digite sua senha">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">🚀 Entrar</button>
+        </form>
+        
+        <div class="login-footer">
+            <p>🎨 Feito com carinho para pequenos leitores!</p>
+        </div>
+    </div>
+</div>
+<script src="js/auth.js"></script>
+</body>
+</html>
