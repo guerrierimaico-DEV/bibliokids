@@ -1,14 +1,13 @@
 /**
- * js/auth.js - Controle de autenticação e sementes iniciais do LocalStorage
+ * js/auth.js - Controle de autenticação, sessão e sementes iniciais do LocalStorage
  */
 
 // Inicializa dados padrão no LocalStorage caso estejam vazios
 function inicializarBanco() {
+    // Se não existirem administradores cadastrados, inicializa com array vazio 
+    // para permitir que o utilizador crie a sua própria conta local no primeiro acesso.
     if (!localStorage.getItem('bibliokids_admins')) {
-        const adminsIniciais = [
-            { id: 1, nome: 'Administrador Master', usuario: 'admin', senha: '12345', master: true, criadoEm: new Date().toISOString() }
-        ];
-        localStorage.setItem('bibliokids_admins', JSON.stringify(adminsIniciais));
+        localStorage.setItem('bibliokids_admins', JSON.stringify([]));
     }
 
     if (!localStorage.getItem('bibliokids_livros')) {
@@ -51,7 +50,21 @@ function inicializarBanco() {
     }
 }
 
-// Verifica se o admin está logado nas páginas protegidas
+// Verifica se é o primeiro acesso (sem administradores criados)
+function verificarPrimeiroAcesso() {
+    inicializarBanco();
+    const admins = JSON.parse(localStorage.getItem('bibliokids_admins')) || [];
+    const paginaAtual = window.location.pathname.split('/').pop();
+    
+    // Se não houver nenhum admin cadastrado e não estivermos na página de registo, redireciona para criar o utilizador
+    if (admins.length === 0 && paginaAtual !== 'registro.html' && paginaAtual !== '') {
+        window.location.href = 'registro.html';
+    } else if (admins.length > 0 && paginaAtual === 'registro.html') {
+        window.location.href = 'index.html';
+    }
+}
+
+// Verifica se o administrador está logado nas páginas protegidas
 function verificarLogin() {
     const logado = sessionStorage.getItem('admin_logado');
     if (!logado) {
@@ -78,12 +91,12 @@ function fazerLogin(e) {
         const erroDiv = document.getElementById('erroLogin');
         if (erroDiv) {
             erroDiv.style.display = 'block';
-            erroDiv.textContent = '❌ Usuário ou senha inválidos!';
+            erroDiv.textContent = '❌ Utilizador ou senha inválidos!';
         }
     }
 }
 
-// Realiza logout
+// Realiza logout da sessão atual
 function fazerLogout() {
     sessionStorage.clear();
     window.location.href = 'index.html';

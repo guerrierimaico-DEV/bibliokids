@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>📚 BiblioKids - Login</title>
-<link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📚 BiblioKids - Login</title>
+    <!-- Manifesto PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#ff6b9d">
+    <!-- Folha de estilos -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="login-bg">
 <div class="login-container">
@@ -17,11 +21,11 @@
         
         <form onsubmit="fazerLogin(event)">
             <div class="form-group">
-                <label>👤 Usuário</label>
-                <input type="text" id="usuario" required autocomplete="off" placeholder="Digite seu usuário">
+                <label>👤 Utilizador</label>
+                <input type="text" id="usuario" required autocomplete="off" placeholder="Digite seu utilizador">
             </div>
             <div class="form-group">
-                <label>🔒 Senha</label>
+                <label>🔒 Palavra-passe</label>
                 <input type="password" id="senha" required placeholder="Digite sua senha">
             </div>
             <button type="submit" class="btn btn-primary btn-block">🚀 Entrar</button>
@@ -33,5 +37,9 @@
     </div>
 </div>
 <script src="js/auth.js"></script>
+<script>
+    // Verifica automaticamente se é o primeiro acesso (redireciona para registo caso não haja utilizadores)
+    verificarPrimeiroAcesso();
+</script>
 </body>
 </html>
