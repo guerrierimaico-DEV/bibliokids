@@ -11,7 +11,9 @@ Esta versão foi totalmente refatorada para funcionar:
 **100% no lado do cliente (Frontend)** utilizando **HTML5, CSS3, Bootstrap 5, JavaScript e LocalStorage**, estando totalmente pronta para ser publicada
 gratuitamente no **GitHub Pages** e instalada como um **PWA (Aplicativo Web Progressivo)**.
 
-
+Acesso:
+Login: admin
+senha: 12345
 
 
 ---
